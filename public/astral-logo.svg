@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="300" height="120" fill="#005B9F" rx="10" ry="10" />
+  
+  <!-- 3D Triangle (Approximation) -->
+  <polygon points="50,90 90,90 70,30" fill="none" stroke="#E2C792" stroke-width="6" stroke-linejoin="round" />
+  <polyline points="50,90 70,70 90,90" fill="none" stroke="#E2C792" stroke-width="4" stroke-linejoin="round" />
+  <line x1="70" y1="30" x2="70" y2="70" stroke="#E2C792" stroke-width="4" stroke-linecap="round" />
+  
+  <!-- Text -->
+  <text x="110" y="65" font-family="Arial, sans-serif" font-weight="bold" font-size="38" fill="#FFFFFF" letter-spacing="1">ASTRAL</text>
+  <text x="110" y="95" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#FFFFFF" letter-spacing="2">PIPES</text>
+  
+  <!-- Trademark R -->
+  <circle cx="270" cy="40" r="5" fill="none" stroke="#FFFFFF" stroke-width="1.5" />
+  <text x="267" y="44" font-family="Arial, sans-serif" font-size="6" fill="#FFFFFF">R</text>
+</svg>

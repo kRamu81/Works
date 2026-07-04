@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Sai Venkateswara Engineering - Mydukur</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Telugu&family=Poppins:wght@400;600;700;800&family=Noto+Sans+Telugu:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a4fa0;
+    --blue-dark: #0d2f6e;
+    --blue-light: #2e6fd4;
+    --gold: #e8a020;
+    --gold-light: #f5c04a;
+    --white: #ffffff;
+    --off-white: #f4f7ff;
+    --text: #1a1a2e;
+    --text-muted: #5a6a8a;
+    --shadow: 0 8px 32px rgba(26,79,160,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ---- NAV ---- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10,30,80,0.97);
+    backdrop-filter: blur(10px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 64px;
+    border-bottom: 2px solid var(--gold);
+  }
+  .nav-brand {
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-brand .logo-circle {
+    width: 40px; height: 40px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; color: var(--blue-dark); font-size: 18px;
+  }
+  .nav-brand span {
+    color: var(--white); font-weight: 700; font-size: 1rem;
+    line-height: 1.2;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+
+  /* ---- HERO ---- */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 55%, #2563b0 100%);
+    display: flex; align-items: center; justify-content: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-pattern {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(232,160,32,0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .hero-grid-lines {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-content {
+    max-width: 700px;
+    text-align: center;
+    position: relative; z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(36px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(232,160,32,0.18);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 22px;
+    text-transform: uppercase;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .hero-title .gold { color: var(--gold-light); }
+  .hero-telugu {
+    font-family: 'Noto Sans Telugu', 'Tiro Telugu', serif;
+    font-size: clamp(1.1rem, 3vw, 1.7rem);
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.78);
+    margin-bottom: 8px;
+    line-height: 1.6;
+  }
+  .hero-sub .te {
+    font-family: 'Noto Sans Telugu', serif;
+    font-size: 0.98rem;
+    color: rgba(255,255,255,0.6);
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 40px;
+    margin: 32px 0;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-num {
+    font-size: 2.2rem; font-weight: 800;
+    color: var(--gold-light);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--gold);
+    color: var(--blue-dark);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 34px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 4px 20px rgba(232,160,32,0.35);
+  }
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  /* ---- SECTION BASE ---- */
+  section { padding: 80px 5%; }
+  .section-tag {
+    display: inline-block;
+    background: rgba(26,79,160,0.08);
+    color: var(--blue);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 800;
+    color: var(--blue-dark);
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .section-title-te {
+    font-family: 'Noto Sans Telugu', serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  .section-divider {
+    width: 56px; height: 4px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin-bottom: 28px;
+  }
+
+  /* ---- ABOUT ---- */
+  #about { background: var(--off-white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .about-text p {
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 14px;
+    font-size: 0.97rem;
+  }
+  .about-text .telugu-p {
+    font-family: 'Noto Sans Telugu', serif;
+    font-size: 0.92rem;
+    color: #7a8aaa;
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+    margin-top: 10px;
+  }
+  .about-cards {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+  .about-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 22px 18px;
+    box-shadow: var(--shadow);
+    border-top: 3px solid var(--blue);
+    transition: transform 0.2s;
+  }
+  .about-card:hover { transform: translateY(-4px); }
+  .about-card .icon { font-size: 1.9rem; margin-bottom: 10px; }
+  .about-card h4 { font-size: 0.92rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 4px; }
+  .about-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ---- SERVICES ---- */
+  #services { background: var(--white); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 22px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .service-card {
+    background: var(--off-white);
+    border-radius: 14px;
+    padding: 30px 22px;
+    text-align: center;
+    border: 1.5px solid transparent;
+    transition: all 0.25s;
+  }
+  .service-card:hover {
+    border-color: var(--blue-light);
+    background: var(--white);
+    box-shadow: var(--shadow);
+    transform: translateY(-5px);
+  }
+  .service-icon { font-size: 2.5rem; margin-bottom: 14px; }
+  .service-card h3 { font-size: 1rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 5px; }
+  .service-card .te { font-family: 'Noto Sans Telugu', serif; font-size: 0.83rem; color: var(--text-muted); margin-bottom: 8px; }
+  .service-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+
+  /* ---- PARTNERS ---- */
+  #partners {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+    text-align: center;
+  }
+  #partners .section-tag { background: rgba(255,255,255,0.1); color: var(--gold-light); }
+  #partners .section-title { color: var(--white); }
+  #partners .section-title-te { color: rgba(255,255,255,0.6); }
+  #partners .section-divider { margin: 0 auto 32px; }
+  .partners-row {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 900px; margin: 0 auto;
+  }
+  .partner-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 30px 40px;
+    min-width: 220px;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    transition: transform 0.2s;
+  }
+  .partner-card:hover { transform: scale(1.04); }
+  .partner-logo {
+    width: 80px; height: 80px;
+    background: var(--blue);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    color: white;
+  }
+  .partner-logo.astral {
+    background: #1a4fa0;
+  }
+  .partner-logo.gajraj {
+    background: #c0392b;
+  }
+  .partner-card h3 { font-weight: 800; font-size: 1.1rem; color: var(--blue-dark); }
+  .partner-card p { font-size: 0.8rem; color: var(--text-muted); text-align: center; }
+  .certified-badge {
+    display: inline-block;
+    background: rgba(232,160,32,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    padding: 3px 12px;
+    border-radius: 100px;
+    text-transform: uppercase;
+  }
+
+  /* ---- CONTACT ---- */
+  #contact { background: var(--off-white); }
+  .contact-wrapper {
+    max-width: 1000px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .contact-info { }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 16px;
+    background: var(--white);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(26,79,160,0.08);
+    border-left: 4px solid var(--blue);
+  }
+  .contact-item .ci-icon { font-size: 1.6rem; flex-shrink: 0; }
+  .contact-item h4 { font-size: 0.85rem; font-weight: 700; color: var(--blue-dark); margin-bottom: 3px; }
+  .contact-item p, .contact-item a {
+    font-size: 0.9rem; color: var(--text-muted);
+    text-decoration: none; line-height: 1.5;
+  }
+  .contact-item a:hover { color: var(--blue); }
+  .contact-item .te { font-family: 'Noto Sans Telugu', serif; font-size: 0.82rem; color: #a0aec0; }
+  .map-container {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 340px;
+  }
+  .map-container iframe {
+    width: 100%; height: 100%; border: none;
+  }
+  .map-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #e8eef8, #c8d8f0);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 12px;
+  }
+  .map-placeholder .map-pin { font-size: 3rem; }
+  .map-placeholder p { font-size: 0.9rem; color: var(--blue); font-weight: 600; text-align: center; padding: 0 20px; }
+  .map-placeholder a {
+    display: inline-block;
+    background: var(--blue);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: background 0.2s;
+  }
+  .map-placeholder a:hover { background: var(--blue-dark); }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--blue-dark);
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 28px 5%;
+    font-size: 0.85rem;
+    border-top: 2px solid var(--gold);
+  }
+  footer .footer-brand { font-weight: 700; color: var(--gold-light); font-size: 1rem; margin-bottom: 6px; }
+  footer .footer-te { font-family: 'Noto Sans Telugu', serif; font-size: 0.82rem; margin-bottom: 6px; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-grid, .contact-wrapper { grid-template-columns: 1fr; gap: 30px; }
+    .hero-stats { gap: 24px; }
+    .about-cards { grid-template-columns: 1fr 1fr; }
+    .map-container { height: 280px; }
+  }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="logo-circle">🔩</div>
+    <span>Sri Sai Venkateswara<br>Engineering</span>
+  </div>
+  <div class="nav-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#partners">Partners</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-grid-lines"></div>
+  <div class="hero-content">
+    <div class="hero-badge">✅ Certified Borewell & Engineering Shop · Mydukur</div>
+    <h1 class="hero-title">Sri Sai <span class="gold">Venkateswara</span><br>Engineering</h1>
+    <p class="hero-telugu">శ్రీ సాయి వెంకటేశ్వర ఇంజినీరింగ్</p>
+    <p class="hero-sub">Your trusted borewell & motor pump experts in Mydukur with over 15 years of experience.</p>
+    <p class="hero-sub te">మైడుకూర్‌లో 15+ సంవత్సరాల విశ్వసనీయ బోర్‌వెల్ & మోటార్ పంప్ నిపుణులు.</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">15+</div>
+        <div class="stat-label">Years Experience<br>సంవత్సరాల అనుభవం</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Certified Brands<br>సర్టిఫైడ్ బ్రాండ్లు</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">Days Open<br>రోజులు తెరిచి ఉంటాం</div>
+      </div>
+    </div>
+    <a href="tel:9949801904" class="hero-cta">📞 Call Now: 9949801904</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <span class="section-tag">About Us · మా గురించి</span>
+      <h2 class="section-title">15+ Years of Trusted<br>Borewell Expertise</h2>
+      <p class="section-title-te">15+ సంవత్సరాల విశ్వసనీయమైన బోర్‌వెల్ అనుభవం</p>
+      <div class="section-divider"></div>
+      <p>Sri Sai Venkateswara Engineering has been serving the Mydukur community for over 15 years. We specialize in borewell drilling, motor pump installation, repair, and maintenance — offering honest, reliable service every single day.</p>
+      <p>We are an authorized dealer and certified service center for Astral Pipes and Gajraj Motor Pumps, ensuring you receive only genuine parts and professional expertise.</p>
+      <p class="telugu-p">మేము మైడుకూర్ సమాజానికి 15 సంవత్సరాలకు పైగా సేవలందిస్తున్నాము. బోర్‌వెల్ డ్రిల్లింగ్, మోటార్ పంప్ ఇన్‌స్టాలేషన్, మరమ్మత్తు మరియు నిర్వహణలో మేము నిపుణులం.</p>
+    </div>
+    <div class="about-cards reveal">
+      <div class="about-card">
+        <div class="icon">🏅</div>
+        <h4>Certified Shop</h4>
+        <p>Authorized dealer for top brands in the region.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🕘</div>
+        <h4>Open Every Day</h4>
+        <p>Mon–Sun, 9:00 AM to 5:00 PM.<br>ప్రతి రోజూ తెరిచి ఉంటాం.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">⚙️</div>
+        <h4>All Borewell Work</h4>
+        <p>New drilling, casing, repairs — all under one roof.</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">🤝</div>
+        <h4>Honest Service</h4>
+        <p>Fair pricing, quality parts, trusted by hundreds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="text-align:center; margin-bottom: 40px;" class="reveal">
+    <span class="section-tag">Our Services · మా సేవలు</span>
+    <h2 class="section-title">What We Do</h2>
+    <p class="section-title-te">మేము అందించే సేవలు</p>
+    <div class="section-divider" style="margin: 0 auto;"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">🌀</div>
+      <h3>Borewell Drilling</h3>
+      <p class="te">బోర్‌వెల్ డ్రిల్లింగ్</p>
+      <p>New borewell drilling with modern equipment for homes, farms & commercial use.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔧</div>
+      <h3>Borewell Repairs</h3>
+      <p class="te">బోర్‌వెల్ మరమ్మత్తు</p>
+      <p>Quick, reliable repair services for existing borewells. All depths covered.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">💧</div>
+      <h3>Motor Pump Installation</h3>
+      <p class="te">మోటార్ పంప్ ఇన్‌స్టాలేషన్</p>
+      <p>Expert installation of submersible and surface motor pumps for all needs.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🛠️</div>
+      <h3>Pump Repairs & Service</h3>
+      <p class="te">పంప్ మరమ్మత్తు</p>
+      <p>Servicing and repairs for all types of motor pumps. Fast turnaround guaranteed.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🔩</div>
+      <h3>Astral Pipes Supply</h3>
+      <p class="te">ఆస్ట్రల్ పైప్స్ సరఫరా</p>
+      <p>Genuine Astral pipes for borewell casing, plumbing, and water supply.</p>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">⚡</div>
+      <h3>Electrical Motor Work</h3>
+      <p class="te">విద్యుత్ మోటార్ పని</p>
+      <p>Winding, rewinding, and electrical maintenance for all motors.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="reveal">
+    <span class="section-tag">Our Partners · మా భాగస్వాములు</span>
+    <h2 class="section-title">Collaborating with Trusted Brands</h2>
+    <p class="section-title-te">విశ్వసనీయమైన బ్రాండ్లతో సహకారం</p>
+    <div class="section-divider"></div>
+    <p style="color:rgba(255,255,255,0.7); max-width:560px; margin: 0 auto 36px; font-size:0.95rem;">
+      We are proud to be an authorized, certified shop for these industry-leading brands — ensuring quality you can trust.
+    </p>
+  </div>
+  <div class="partners-row reveal">
+    <div class="partner-card">
+      <div class="partner-logo astral">🔺</div>
+      <h3>Astral Pipes</h3>
+      <p>India's leading pipe manufacturer. Genuine Astral pipes for borewells & plumbing.</p>
+      <span class="certified-badge">✅ Certified Dealer</span>
+    </div>
+    <div class="partner-card">
+      <div class="partner-logo gajraj">🐘</div>
+      <h3>Gajraj Motor Pumps</h3>
+      <p>Trusted motor pump brand for agriculture, domestic & industrial applications.</p>
+      <span class="certified-badge">✅ Certified Dealer</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div style="margin-bottom: 40px;" class="reveal">
+    <span class="section-tag">Contact Us · సంప్రదించండి</span>
+    <h2 class="section-title">Get In Touch</h2>
+    <p class="section-title-te">మాతో సంప్రదించండి</p>
+    <div class="section-divider"></div>
+  </div>
+  <div class="contact-wrapper">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <span class="ci-icon">📞</span>
+        <div>
+          <h4>Phone Number · ఫోన్ నంబర్</h4>
+          <a href="tel:9949801904">9949801904</a>
+          <p class="te">కాల్ చేయండి - మేము సహాయం చేస్తాము!</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">🕘</span>
+        <div>
+          <h4>Working Hours · పని వేళలు</h4>
+          <p>Every Day: 9:00 AM – 5:00 PM</p>
+          <p class="te">ప్రతి రోజూ: ఉదయం 9 – సాయంత్రం 5 గంటలు</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">📍</span>
+        <div>
+          <h4>Location · స్థానం</h4>
+          <p>Mydukur, Andhra Pradesh</p>
+          <p class="te">మైడుకూర్, ఆంధ్రప్రదేశ్</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <span class="ci-icon">✅</span>
+        <div>
+          <h4>Services Available · సేవలు</h4>
+          <p>All borewell work & repairs available every day</p>
+          <p class="te">అన్ని బోర్‌వెల్ పనులు & మరమ్మత్తు ప్రతి రోజూ</p>
+        </div>
+      </div>
+    </div>
+    <div class="map-container reveal">
+      <div class="map-placeholder">
+        <div class="map-pin">📍</div>
+        <p>Sri Sai Venkateswara Engineering<br>Mydukur, Andhra Pradesh</p>
+        <a href="https://www.google.com/maps/search/sri+venkateshwara+workshop+mydukur+engineering+mydukur/@14.7291935,78.7392078,16z?entry=s&sa=X&ved=1t%3A199789" target="_blank" rel="noopener">
+          🗺️ Open in Google Maps
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">Sri Sai Venkateswara Engineering</div>
+  <div class="footer-te">శ్రీ సాయి వెంకటేశ్వర ఇంజినీరింగ్ · మైడుకూర్</div>
+  <p>Mydukur, Andhra Pradesh &nbsp;|&nbsp; 📞 9949801904 &nbsp;|&nbsp; Mon–Sun: 9 AM – 5 PM</p>
+  <p style="margin-top:8px; font-size:0.77rem; opacity:0.5;">Certified Astral Pipes & Gajraj Motor Pumps Dealer · 15+ Years of Service</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
