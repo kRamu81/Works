@@ -13,7 +13,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 bg-white rounded-full p-1 relative">
                 <Image
-                  src="/logo.svg"
+                  src="/logo.png"
                   alt="Sri Sai Venkateswara Engineering"
                   fill
                   className="object-contain p-1"
