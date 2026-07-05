@@ -45,9 +45,8 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 z-50 group">
           <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white rounded-full p-1 shadow-md transition-transform duration-300 group-hover:scale-105">
-            {/* The user will upload logo.png to the public folder */}
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Sri Sai Venkateswara Engineering Logo"
               fill
               className="object-contain p-1"

@@ -13,8 +13,11 @@ const stats = [
 
 const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
   const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
+    if (!hasStarted) return;
+    
     let start = 0;
     const end = value;
     if (start === end) return;
@@ -40,13 +43,17 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
     }, incrementTime);
 
     return () => clearInterval(timer);
-  }, [value]);
+  }, [value, hasStarted]);
 
   return (
-    <span className="font-heading font-extrabold text-4xl lg:text-5xl text-accent">
-      {count}
-      {suffix}
-    </span>
+    <motion.span 
+      className="font-heading font-extrabold text-4xl lg:text-5xl text-accent inline-block min-w-[3ch]"
+      onViewportEnter={() => setHasStarted(true)}
+      viewport={{ once: true }}
+    >
+      {hasStarted ? count : ""}
+      {hasStarted ? suffix : ""}
+    </motion.span>
   );
 };
 

@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   title: "Sri Sai Venkateswara Engineering | Borewell Drilling & Motor Pump Experts | Mydukur",
   description:
     "Sri Sai Venkateswara Engineering is a trusted borewell drilling, motor pump installation, repair, Astral Pipes dealer and Gajraj Motor Pumps dealer serving Mydukur for over 15 years.",
+  icons: {
+    icon: '/favicon.svg',
+  }
 };
 
 export default function RootLayout({
