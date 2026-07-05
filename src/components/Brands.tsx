@@ -76,8 +76,8 @@ export default function Brands() {
                <Image src="/astral-logo.svg" alt="Astral Pipes Official Logo" width={140} height={90} className="object-contain w-full h-full" />
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-2">Astral Pipes</h3>
-            <p className="text-white/70 text-sm leading-relaxed">
+            <h3 className="text-2xl font-bold text-dark mb-2">Astral Pipes</h3>
+            <p className="text-dark/80 text-sm leading-relaxed">
               India's leading pipe manufacturer. We provide genuine Astral pipes for all borewell casing and plumbing needs, ensuring decades of leak-free performance.
             </p>
           </motion.div>
@@ -101,8 +101,8 @@ export default function Brands() {
                <Image src="/gajraj-logo.png" alt="Gajraj Motor Pumps Official Logo" width={140} height={90} className="object-contain w-full h-full" />
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-2">Gajraj Motor Pumps</h3>
-            <p className="text-white/70 text-sm leading-relaxed">
+            <h3 className="text-2xl font-bold text-dark mb-2">Gajraj Motor Pumps</h3>
+            <p className="text-dark/80 text-sm leading-relaxed">
               Highly trusted motor pump brand designed for Indian agriculture and domestic applications. We supply and service the complete range.
             </p>
           </motion.div>
@@ -126,8 +126,8 @@ export default function Brands() {
                <Image src="/texla-logo.svg" alt="Texla Motors Official Logo" width={140} height={90} className="object-contain w-full h-full" />
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-2">Texla Motors</h3>
-            <p className="text-white/70 text-sm leading-relaxed">
+            <h3 className="text-2xl font-bold text-dark mb-2">Texla Motors</h3>
+            <p className="text-dark/80 text-sm leading-relaxed">
               Reliable motor brand trusted for agricultural and industrial pump applications. Built for high performance and rugged environments.
             </p>
           </motion.div>
@@ -151,8 +151,8 @@ export default function Brands() {
                <Image src="/finolex-logo.svg" alt="Finolex Cables Official Logo" width={140} height={90} className="object-contain w-full h-full" />
             </div>
             
-            <h3 className="text-2xl font-bold text-white mb-2">Finolex Cables</h3>
-            <p className="text-white/70 text-sm leading-relaxed">
+            <h3 className="text-2xl font-bold text-dark mb-2">Finolex Cables</h3>
+            <p className="text-dark/80 text-sm leading-relaxed">
               India's leading cable manufacturer, ensuring safe and durable electrical wiring for all borewell installations and motor setups.
             </p>
           </motion.div>
