@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-white rounded-full p-1 relative">
+              <div className="w-10 h-10 bg-white rounded-xl p-1 relative overflow-hidden">
                 <Image
                   src="/logo.png"
                   alt="Sri Sai Venkateswara Engineering"

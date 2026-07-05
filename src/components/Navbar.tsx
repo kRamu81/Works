@@ -44,7 +44,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 z-50 group">
-          <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white rounded-full p-1 shadow-md transition-transform duration-300 group-hover:scale-105">
+          <div className="relative w-10 h-10 md:w-12 md:h-12 bg-white rounded-xl p-1 shadow-md transition-transform duration-300 group-hover:scale-105 overflow-hidden">
             <Image
               src="/logo.png"
               alt="Sri Sai Venkateswara Engineering Logo"
